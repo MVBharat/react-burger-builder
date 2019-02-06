@@ -34,8 +34,7 @@ class BurgerBuilder extends React.Component{
             .catch(error => {
                 this.setState({ error: true })
             })  
-        }
-
+    }
 
     updatePurchaseState (ingredients)  {
         const sum = Object.keys(ingredients)
