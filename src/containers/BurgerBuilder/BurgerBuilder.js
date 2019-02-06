@@ -27,6 +27,7 @@ class BurgerBuilder extends React.Component{
     }
 
     componentDidMount(){
+        console.log(this.props)
         axios.get('https://react-my-burger-builder-285b6.firebaseio.com/ingredients.json')
             .then(responese => {
                 this.setState({ingredients: responese.data})
@@ -81,6 +82,7 @@ class BurgerBuilder extends React.Component{
         //             this.setState({loading: false, purchasing: false})
         //         })
 
+        this.props.history.push('/checkout');
     }
 
     addIngredientHandler = (type) =>{
