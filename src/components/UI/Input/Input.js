@@ -6,7 +6,7 @@ const input = (props) => {
 
     const inputClasses= [classes.InputElement]
 
-    if(props.invalid && props.shouldValidate && props.touched ){
+    if(props.invalid && props.shouldValidate && props.touched){
         inputClasses.push(classes.Invalid)
     }
 
@@ -17,28 +17,27 @@ const input = (props) => {
                                 {...props.elementConfig} 
                                 value={props.value} 
                                 onChange={props.changed}/>
-            break;
+                            break;
         case('textarea'):
             inputElement = <textarea 
                                 className={inputClasses.join(' ')} 
                                 {...props.elementConfig} 
                                 value={props.value} 
                                 onChange={props.changed}/>
-            break;
-
+                            break;
         case('select'):
             inputElement = ( 
-                        <select
-                            className={inputClasses.join(' ')}                            
-                            onChange={props.changed}>
-                            {props.elementConfig.options.map(option => (
-                                <option key={option.value} value={option.value}>
-                                    {option.displayValue}
-                                </option>
-                            ))}
-                        </select>
-                    );
-            break;
+                            <select
+                                className={inputClasses.join(' ')}                            
+                                onChange={props.changed}>
+                                {props.elementConfig.options.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.displayValue}
+                                    </option>
+                                ))}
+                            </select>
+                            );
+                            break;
         default:
             inputElement= <input
                                 className={inputClasses.join(' ')} 
