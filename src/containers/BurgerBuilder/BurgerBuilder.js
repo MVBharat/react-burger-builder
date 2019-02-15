@@ -13,7 +13,6 @@ import * as actionTypes from '../../store/actions'
 class BurgerBuilder extends React.Component{
 
     state = {
-        purchaseable: false, 
         purchasing: false,
         loading: false,
         error: false,
@@ -38,7 +37,7 @@ class BurgerBuilder extends React.Component{
                 .reduce((sum, el) => {
                     return sum + el;
                 }, 0);
-                this.setState({purchaseable: sum > 0})
+                return sum > 0
     }
 
     purchaseHandler = () => {
@@ -81,7 +80,7 @@ class BurgerBuilder extends React.Component{
                             ingredientAdded={this.props.onIngredientAdded}
                             ingredientRemoved={this.props.onIngredientRemoved}
                             disabled={disableInfo} 
-                            purchaseable={this.state.purchaseable} 
+                            purchaseable={this.updatePurchaseState(this.props.ings)} 
                             ordered = {this.purchaseHandler}
                             price = {this.props.price}                      
                             />
@@ -120,11 +119,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return{
-        onIngredientAdded: (ingName) => dispatch({type: actionTypes.ADD_INGREDIENT, ingrdientName: ingName}),
-        onIngredientRemoved: (ingName) => dispatch({type: actionTypes.REMOVE_INGREDIENT, ingrdientName: ingName})
+        onIngredientAdded: (ingName) => dispatch({type: actionTypes.ADD_INGREDIENT, ingredientName: ingName}),
+        onIngredientRemoved: (ingName) => dispatch({type: actionTypes.REMOVE_INGREDIENT, ingredientName: ingName})
     }
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios ));
