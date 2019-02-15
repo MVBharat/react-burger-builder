@@ -79,7 +79,7 @@ class BurgerBuilder extends React.Component{
             orderSummary =  
                     <OrderSummary 
                         ingredients={this.props.ings}
-                        price={this.props.price} 
+                        price={this.props.price.toFixed(2)} 
                         purchaseCancelled = {this.purchaseCancelHandler}
                         purchaseContinued = {this.purchaseContiueHandler}
                     />
