@@ -64,17 +64,17 @@ class BurgerBuilder extends React.Component{
 
         if(this.props.ings){
            burger =(
-                    <Aux>                    
-                        <Burger ingredients={this.props.ings} />
-                        <BuildControls 
-                            ingredientAdded={this.props.onIngredientAdded}
-                            ingredientRemoved={this.props.onIngredientRemoved}
-                            disabled={disableInfo} 
-                            purchaseable={this.updatePurchaseState(this.props.ings)} 
-                            ordered = {this.purchaseHandler}
-                            price = {this.props.price}                      
-                            />
-                    </Aux>
+                <Aux>                    
+                    <Burger ingredients={this.props.ings} />
+                    <BuildControls 
+                        ingredientAdded={this.props.onIngredientAdded}
+                        ingredientRemoved={this.props.onIngredientRemoved}
+                        disabled={disableInfo} 
+                        purchaseable={this.updatePurchaseState(this.props.ings)} 
+                        ordered = {this.purchaseHandler}
+                        price = {this.props.price}                      
+                        />
+                </Aux>
             );
             orderSummary =  
                     <OrderSummary 
